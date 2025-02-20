@@ -35,6 +35,31 @@
         a:hover {
             background: #0056b3;
         }
+        .calculator {
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
     </style>
 </head>
 <body>
@@ -44,6 +69,7 @@
         <h2>Nhà Giả Kim</h2>
         <img src="https://upload.wikimedia.org/wikipedia/vi/1/11/Nh%C3%A0_Gi%E1%BA%A3_Kim.jpg" alt="Nhà Giả Kim">
         <p>Cuốn sách đầy triết lý sống của Paulo Coelho.</p>
+        <p>Giá: <span id="price1">100000</span> VND</p>
         <a href="https://shopee.vn/sach-nha-gia-kim">Mua ngay</a>
     </div>
     
@@ -51,7 +77,31 @@
         <h2>Đắc Nhân Tâm</h2>
         <img src="https://upload.wikimedia.org/wikipedia/vi/5/5f/DacNhanTam.jpg" alt="Đắc Nhân Tâm">
         <p>Cuốn sách giúp bạn làm chủ giao tiếp và thành công.</p>
+        <p>Giá: <span id="price2">120000</span> VND</p>
         <a href="https://shopee.vn/sach-dac-nhan-tam">Mua ngay</a>
     </div>
+    
+    <div class="calculator">
+        <h2>🧮 Tính Tổng Tiền Sách 🧮</h2>
+        <label>Nhập số lượng sách "Nhà Giả Kim":</label>
+        <input type="number" id="qty1" value="0" min="0">
+        <br>
+        <label>Nhập số lượng sách "Đắc Nhân Tâm":</label>
+        <input type="number" id="qty2" value="0" min="0">
+        <br>
+        <button onclick="calculateTotal()">Tính Tổng</button>
+        <h3>Tổng tiền: <span id="total">0</span> VND</h3>
+    </div>
+    
+    <script>
+        function calculateTotal() {
+            let price1 = parseInt(document.getElementById('price1').innerText);
+            let price2 = parseInt(document.getElementById('price2').innerText);
+            let qty1 = parseInt(document.getElementById('qty1').value);
+            let qty2 = parseInt(document.getElementById('qty2').value);
+            let total = (price1 * qty1) + (price2 * qty2);
+            document.getElementById('total').innerText = total;
+        }
+    </script>
 </body>
 </html>
